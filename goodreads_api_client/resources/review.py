@@ -17,12 +17,13 @@ class Review(Resource):
     def edit(self):
         raise OauthEndpointNotImplemented('review.edit')
 
-    def list(self, id_: str, name: str):
+    def list(self, id_: str, name: str, per_page):
         endpoint = 'review/list/{0}.xml'.format(id_)
         params = {
             'v': 2,
             'id': id_,
             'shelf': name,
+            'per_page': per_page,
         }
         res = self._transport.req(endpoint=endpoint, params=params)
         return res
