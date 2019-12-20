@@ -20,6 +20,7 @@ class Review(Resource):
     def list(self, id_: str, name: str):
         endpoint = 'review/list/{0}.xml'.format(id_)
         params = {
+            'v': 2,
             'id': id_,
             'shelf': name,
         }
